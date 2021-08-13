@@ -39,18 +39,23 @@
       >
         {{ inboxItem.senderName }}
       </h2>
-      <span class="hidden" :id="'status-and-teaser-announcement-' + indexNum"
+      <span class="hidden" :id="'status-' + indexNum"
         >{{
           inboxItem.selected === true
             ? $t("currentlySelected")
             : $t("accessInboxItem") +
               (inboxItem.dayRead ? $t("alreadyRead") : $t("unread"))
-        }}. {{ $t("teaserText") }}:</span
+        }}.
+      </span>
+      <span class="hidden" :id="'teaser-announcement-' + indexNum"
+        >{{ $t("teaserText") }}:</span
       >
       <h2
         :id="'teaser-text-' + indexNum"
         :aria-labelledby="
-          'status-and-teaser-announcement-' +
+          'status-' +
+          indexNum +
+          ' teaser-announcement-' +
           indexNum +
           ' teaser-text-' +
           indexNum
